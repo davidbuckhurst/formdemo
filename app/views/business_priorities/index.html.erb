@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Business Priorities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rule name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @business_priorities.each do |business_priority| %>
+      <tr>
+        <td><%= business_priority.rule_name %></td>
+        <td><%= link_to 'Show', business_priority %></td>
+        <td><%= link_to 'Edit', edit_business_priority_path(business_priority) %></td>
+        <td><%= link_to 'Destroy', business_priority, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Business priority', new_business_priority_path %>

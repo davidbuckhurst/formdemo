@@ -1,0 +1,33 @@
+<%= form_for(@business_priority) do |f| %>
+  <% if @business_priority.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@business_priority.errors.count, "error") %> prohibited this business_priority from being saved:</h2>
+
+      <ul>
+      <% @business_priority.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :rule_name %><br>
+    <%= f.text_field :rule_name %>
+  </div>
+  
+  
+  <div class="field form-group row">
+    <%= f.label :devices, class: "col-sm-2" %>
+    <div class="col-sm-10">
+      <%= f.collection_check_boxes( :device_ids, Device.all, :id, :id, {}, {:class => 'form-control'} )  %>
+    </div>
+  </div>
+  
+  
+  
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
